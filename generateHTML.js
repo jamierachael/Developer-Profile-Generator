@@ -25,7 +25,7 @@ const colors = {
   }
 };
 
-function generateHTML(data) {
+function generateHTML(data, response) {
   return `<!DOCTYPE html>
 <html lang="en">
    <head>
@@ -34,6 +34,7 @@ function generateHTML(data) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
       <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
       <title>Document</title>
       <style>
           @page {
@@ -170,6 +171,29 @@ function generateHTML(data) {
             zoom: .75; 
           } 
          }
-      </style>`
+      </style>
+      
+      </head >
+   <body>
+     <div class="jumbotron jumbotron-fluid">
+       <div class="wrapper" >
+         <div class="container">
+           <div class="main">
+             <h1 class="display-4">Hi! My name is ${response.data.name}</h1>
+             <img src="${response.data.avatar_url}" class="rounded-circle"/>
+             <p class="lead">I am from ${response.data.location}.</p>
+            <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
+            <ul class="list-group">
+              <li class="list-group-item">My GitHub username is ${response.data.company}</li>
+              <li class="list-group-item">LinkedIn: ${response.data.blog}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+ </html >`
 }
 module.exports = generateHTML;
+// generateHTML();
+// console.log(data);
