@@ -175,22 +175,68 @@ function generateHTML(data, response) {
       
       </head >
    <body>
-     <div class="jumbotron jumbotron-fluid">
-       <div class="wrapper" >
-         <div class="container">
-           <div class="main">
-             <h1 class="display-4">Hi! My name is ${response.data.name}</h1>
-             <img src="${response.data.avatar_url}" class="rounded-circle"/>
-             <p class="lead">I am from ${response.data.location}.</p>
-            <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-            <ul class="list-group">
-              <li class="list-group-item">My GitHub username is ${response.data.company}</li>
-              <li class="list-group-item">LinkedIn: ${response.data.blog}</li>
-            </ul>
-          </div>
+  
+    <div class="main">
+        <div class="container">
+            <div class="wrapper">
+                <div class="photo-header">
+                <img src="${response.data.avatar_url}" class="rounded-circle mx-auto d-block" />
+                    <h1 class="display-4">Hi!</h1>
+                    <h1 class="display-4">Hi! My name is ${response.data.name}</h1>
+                    <h3>Currently @</h3>
+                    <div class="row">
+                        <div class="col">
+                            <h4>I am from ${response.data.location}</h4>
+                        </div>
+                        <div class="col">
+                            <h4>My GitHub username is ${response.data.company}</h4>
+                        </div>
+                        <div class="col">
+                            <h4>LinkedIn: ${response.data.blog}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2 class="display-4 text-center">Testing</h2>
+            <!-- Start first card row -->
+            <div class="row">
+                <div class="col">
+                    <div class="card photo-header">
+                        <div class="card-body">
+                            <h3> This is some text within a card body.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card photo-header">
+                        <div class="card-body">
+                            <h3> This is some text within a card body.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start second card row -->
+            <div class="row">
+                <div class="col">
+                    <div class="card photo-header">
+                        <div class="card-body">
+                            <h3> This is some text within a card body.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card photo-header">
+                        <div class="card-body">
+                            <h3> This is some text within a card body.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+
     </div>
+
   </body>
  </html >`
 }

@@ -28,10 +28,11 @@ function promptUser() {
 
 // url: 'https://api.github.com/users/jamierachael',
 
-
+let userAnswers = {};
 promptUser()
   .then(function (answers) {
     // const html = generate(answers);
+    userAnswers = answers;
     console.log(answers);
 
     // Make API call 
@@ -39,13 +40,14 @@ promptUser()
 
     const queryUrl = `https://api.github.com/users/${answers.username}`;
 
-    axios.get(queryUrl).then(function (response) {
-      console.log(response);
-      const html = generate(answers, response);
-      return writeFileAsync("index.html", html);
+    return axios.get(queryUrl)
 
-    });
 
+  })
+  .then(function (response) {
+    console.log(response);
+    const html = generate(userAnswers, response);
+    return writeFileAsync("index.html", html);
 
   })
   .then(function () {
@@ -54,12 +56,35 @@ promptUser()
     var htmlPDF = fs.readFileSync('./index.html', 'utf8');
     var options = { format: 'Letter' };
 
-    pdf.create(htmlPDF, options).toFile('./index.pdf', function (err, res) {
-      if (err) return console.log(err);
-      console.log(res); // { filename: '/app/businesscard.pdf' }
-    });
+    return new Promise((resolve, reject) => {
+      pdf.create(htmlPDF, options).toFile('./index.pdf', function (err, res) {
+
+        console.log(res);
+
+        if (err) return reject(err);
+        return resolve(res);
+
+      })
+    })
+
 
   })
+  .then(function (res) {
+    console.log("This works!", res);
+    // fs.open('./index.pdf', 'r', (err, fd) => {
+    //   if (err) {
+    //     if (err.code === 'ENOENT') {
+    //       console.error('myfile does not exist');
+    //       return;
+    //     }
+
+    //     throw err;
+    //   }
+
+    //   // readMyData(fd);
+    // })
+  })
+
   .catch(function (err) {
     console.log(err);
 
