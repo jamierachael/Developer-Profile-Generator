@@ -190,7 +190,7 @@ function generateHTML(data, response) {
                 <div class="photo-header">
                 <img src="${response.data.avatar_url}" class="rounded-circle mx-auto d-block" />
                     <h1 class="display-4">Hi!</h1>
-                    <h1 class="display-4">Hi! My name is ${response.data.name}</h1>
+                    <h1 class="display-4">My name is ${response.data.name}</h1>
                     <h3 class="text-center mt-1">Currently @ ${response.data.company}</h3>
                     
                     <nav class="nav links-nav">
@@ -206,13 +206,17 @@ function generateHTML(data, response) {
                     
                     </nav>
                     </div>
+                    
                    
                         
 
                 </div>
             </div>
               <div class="container">
-          <h3>${response.data.bio}</h3>
+              
+          <h3 ml-5 mr-5>${response.data.bio}</h3>
+          
+
           </div>
             <div class="row">
                 <div class="col">
