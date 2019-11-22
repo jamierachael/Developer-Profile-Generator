@@ -39,6 +39,7 @@ function generateHTML(data, response) {
       <style>
           @page {
             margin: 0;
+            
           }
          *,
          *::after,
@@ -62,9 +63,10 @@ function generateHTML(data, response) {
          font-family: 'Cabin', sans-serif;
          }
          main {
-         background-color: #E9EDEE;
-         height: auto;
-         padding-top: 30px;
+          background-color: #E9EDEE;
+          height: auto;
+          padding-top: 30px;
+         
          }
          h1, h2, h3, h4, h5, h6 {
          font-family: 'BioRhyme', serif;
@@ -122,10 +124,12 @@ function generateHTML(data, response) {
          text-align: center;
          padding: 20px 0;
          font-size: 1.1em;
+         color: ${colors[data.color].headerColor};
          }
          .nav-link {
          display: inline-block;
          margin: 5px 10px;
+         color: ${colors[data.color].headerColor};
          }
          .workExp-date {
          font-style: italic;
@@ -134,8 +138,9 @@ function generateHTML(data, response) {
          margin-top: 10px;
          }
          .container {
-         padding: 50px;
-         
+          padding: 50px;
+          padding-left: 100px;
+          padding-right: 100px;
          
          }
 
@@ -168,7 +173,7 @@ function generateHTML(data, response) {
 
          @media print { 
           body { 
-            zoom: .75; 
+            zoom: .5; 
           } 
          }
       </style>
@@ -176,29 +181,33 @@ function generateHTML(data, response) {
       </head >
    <body>
   
-    <div class="main">
+    
         <div class="container">
             <div class="wrapper">
                 <div class="photo-header">
                 <img src="${response.data.avatar_url}" class="rounded-circle mx-auto d-block" />
                     <h1 class="display-4">Hi!</h1>
                     <h1 class="display-4">Hi! My name is ${response.data.name}</h1>
-                    <h3>Currently @ ${response.data.company}</h3>
-                    <div class="row">
-                        <div class="col">
-                            <h4>I am from ${response.data.location}</h4>
-                        </div>
-                        <div class="col">
-                            <h4>My GitHub username is ${response.data.html_url}</h4>
-                        </div>
-                        <div class="col">
-                            <h4>LinkedIn: <a href="${response.data.blog}">${response.data.blog}</a>
-                            </h4>
-                        </div>
+                    <h3 class="text-center">Currently @ ${response.data.company}</h3>
                     </div>
+                    <nav class="nav links-nav mt-5">
+
+
+                            <a class="nav-link" href="${response.data.location}">I am from ${response.data.location}</a>
+                        
+                        
+                            <a class="nav-link" href="${response.data.html_url}"><i class="fa fa-github" aria-hidden="true"></i>
+                            </a>
+                            
+                        
+                            <a class="nav-link" href="${response.data.blog}">${response.data.blog}</a>
+                            
+                            </nav>
+                        
+
                 </div>
             </div>
-            <h2 class="display-4 text-center">Testing</h2>
+            <h2 class="display-4 text-center mt-5">Testing</h2>
             
             <div class="row">
                 <div class="col">
@@ -237,7 +246,7 @@ function generateHTML(data, response) {
                 </div>
             </div>
         </div>
-    </div>
+    
 
   </body>
  </html >`

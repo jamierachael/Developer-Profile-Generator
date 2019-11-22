@@ -11,6 +11,7 @@
       <style>
           @page {
             margin: 0;
+            
           }
          *,
          *::after,
@@ -34,9 +35,10 @@
          font-family: 'Cabin', sans-serif;
          }
          main {
-         background-color: #E9EDEE;
-         height: auto;
-         padding-top: 30px;
+          background-color: #E9EDEE;
+          height: auto;
+          padding-top: 30px;
+         
          }
          h1, h2, h3, h4, h5, h6 {
          font-family: 'BioRhyme', serif;
@@ -94,10 +96,12 @@
          text-align: center;
          padding: 20px 0;
          font-size: 1.1em;
+         color: white;
          }
          .nav-link {
          display: inline-block;
          margin: 5px 10px;
+         color: white;
          }
          .workExp-date {
          font-style: italic;
@@ -106,8 +110,9 @@
          margin-top: 10px;
          }
          .container {
-         padding: 50px;
-         
+          padding: 50px;
+          padding-left: 100px;
+          padding-right: 100px;
          
          }
 
@@ -140,7 +145,7 @@
 
          @media print { 
           body { 
-            zoom: .75; 
+            zoom: .5; 
           } 
          }
       </style>
@@ -148,29 +153,33 @@
       </head >
    <body>
   
-    <div class="main">
+    
         <div class="container">
             <div class="wrapper">
                 <div class="photo-header">
                 <img src="https://avatars0.githubusercontent.com/u/23657495?v=4" class="rounded-circle mx-auto d-block" />
                     <h1 class="display-4">Hi!</h1>
                     <h1 class="display-4">Hi! My name is Jamie Rachael Morris</h1>
-                    <h3>Currently @ Looking for opportunities</h3>
-                    <div class="row">
-                        <div class="col">
-                            <h4>I am from Boston, MA</h4>
-                        </div>
-                        <div class="col">
-                            <h4>My GitHub username is https://github.com/jamierachael</h4>
-                        </div>
-                        <div class="col">
-                            <h4>LinkedIn: <a href="https://www.linkedin.com/in/jamie-rachael-morris/">https://www.linkedin.com/in/jamie-rachael-morris/</a>
-                            </h4>
-                        </div>
+                    <h3 class="text-center">Currently @ Looking for opportunities</h3>
                     </div>
+                    <nav class="nav links-nav mt-5">
+
+
+                            <a class="nav-link" href="Boston, MA">I am from Boston, MA</a>
+                        
+                        
+                            <a class="nav-link" href="https://github.com/jamierachael"><i class="fa fa-github" aria-hidden="true"></i>
+                            </a>
+                            
+                        
+                            <a class="nav-link" href="https://www.linkedin.com/in/jamie-rachael-morris/">https://www.linkedin.com/in/jamie-rachael-morris/</a>
+                            
+                            </nav>
+                        
+
                 </div>
             </div>
-            <h2 class="display-4 text-center">Testing</h2>
+            <h2 class="display-4 text-center mt-5">Testing</h2>
             
             <div class="row">
                 <div class="col">
@@ -209,7 +218,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 
   </body>
  </html >
