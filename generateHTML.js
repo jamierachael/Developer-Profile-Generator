@@ -183,58 +183,60 @@ function generateHTML(data, response) {
                 <img src="${response.data.avatar_url}" class="rounded-circle mx-auto d-block" />
                     <h1 class="display-4">Hi!</h1>
                     <h1 class="display-4">Hi! My name is ${response.data.name}</h1>
-                    <h3>Currently @</h3>
+                    <h3>Currently @ ${response.data.company}</h3>
                     <div class="row">
                         <div class="col">
                             <h4>I am from ${response.data.location}</h4>
                         </div>
                         <div class="col">
-                            <h4>My GitHub username is ${response.data.company}</h4>
+                            <h4>My GitHub username is ${response.data.html_url}</h4>
                         </div>
                         <div class="col">
-                            <h4>LinkedIn: ${response.data.blog}
+                            <h4>LinkedIn: <a href="${response.data.blog}">${response.data.blog}</a>
                             </h4>
                         </div>
                     </div>
                 </div>
             </div>
             <h2 class="display-4 text-center">Testing</h2>
-            <!-- Start first card row -->
+            
             <div class="row">
                 <div class="col">
                     <div class="card photo-header">
                         <div class="card-body">
-                            <h3> This is some text within a card body.</h3>
+                            <h3>Public Repos </h3>
+                            <h4>${response.data.public_repos} </h4>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card photo-header">
                         <div class="card-body">
-                            <h3> This is some text within a card body.</h3>
+                            <h3>Followers</h3>
+                            <h4>${response.data.followers}</h4> 
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Start second card row -->
+            
             <div class="row">
                 <div class="col">
                     <div class="card photo-header">
                         <div class="card-body">
-                            <h3> This is some text within a card body.</h3>
+                            <h4> What?</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card photo-header">
                         <div class="card-body">
-                            <h3> This is some text within a card body.</h3>
+                            <h3>Following</h3>
+                            <h4> ${response.data.following}</h4>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
   </body>

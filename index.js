@@ -5,6 +5,8 @@ const util = require("util");
 var pdf = require('html-pdf');
 const generate = require('./generateHTML');
 const axios = require("axios");
+const openFile = require('open-file');
+
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -71,18 +73,11 @@ promptUser()
   })
   .then(function (res) {
     console.log("This works!", res);
-    // fs.open('./index.pdf', 'r', (err, fd) => {
-    //   if (err) {
-    //     if (err.code === 'ENOENT') {
-    //       console.error('myfile does not exist');
-    //       return;
-    //     }
 
-    //     throw err;
-    //   }
-
-    //   // readMyData(fd);
-    // })
+    openFile('./index.pdf', 'r').then(fileDescriptor => {
+      fileDescriptor; //=> 15
+      // https://www.npmjs.com/package/open-file
+    });
   })
 
   .catch(function (err) {
