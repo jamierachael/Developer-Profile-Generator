@@ -135,8 +135,8 @@ function generateHTML(data, response) {
          }
          .container {
          padding: 50px;
-         padding-left: 100px;
-         padding-right: 100px;
+         
+         
          }
 
          .row {

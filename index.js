@@ -5,7 +5,7 @@ const util = require("util");
 var pdf = require('html-pdf');
 const generate = require('./generateHTML');
 const axios = require("axios");
-const openFile = require('open-file');
+const open = require('open');
 
 
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -69,15 +69,13 @@ promptUser()
       })
     })
 
-
   })
   .then(function (res) {
     console.log("This works!", res);
 
-    openFile('./index.pdf', 'r').then(fileDescriptor => {
-      fileDescriptor; //=> 15
-      // https://www.npmjs.com/package/open-file
-    });
+
+    open('index.pdf');
+    console.log('The image viewer app quit');
   })
 
   .catch(function (err) {
@@ -85,3 +83,4 @@ promptUser()
 
   });
 
+// Google maps is just a link with city in query string
