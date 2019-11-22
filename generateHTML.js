@@ -122,13 +122,13 @@ function generateHTML(data, response) {
          .links-nav {
          width: 100%;
          text-align: center;
-         padding: 20px 0;
-         font-size: 1.1em;
+         padding: 20px 30px;
          color: ${colors[data.color].headerColor};
          }
          .nav-link {
          display: inline-block;
-         margin: 5px 10px;
+         margin: 5px 20px;
+         font-size: 2em;
          color: ${colors[data.color].headerColor};
          }
          .workExp-date {
@@ -152,13 +152,16 @@ function generateHTML(data, response) {
            margin-bottom: 20px;
          }
 
-         .card {
-           padding: 20px;
-           border-radius: 6px;
-           background-color: ${colors[data.color].headerBackground};
-           color: ${colors[data.color].headerColor};
-           margin: 20px;
-         }
+
+        .card {
+          padding: 20px;
+          border-radius: 6px;
+          background-color: ${colors[data.color].headerBackground};
+          color: ${colors[data.color].headerColor};
+          margin: 20px;
+          width: 80%;
+      }
+
          
          .col {
          flex: 1;
@@ -188,30 +191,32 @@ function generateHTML(data, response) {
                 <img src="${response.data.avatar_url}" class="rounded-circle mx-auto d-block" />
                     <h1 class="display-4">Hi!</h1>
                     <h1 class="display-4">Hi! My name is ${response.data.name}</h1>
-                    <h3 class="text-center">Currently @ ${response.data.company}</h3>
+                    <h3 class="text-center mt-1">Currently @ ${response.data.company}</h3>
+                    
+                    <nav class="nav links-nav">
+
+                    <a class="nav-link" href="https://www.google.com/maps/dir/?api=1&${response.data.location}"><i class="fas fa-location-arrow"></i>
+
+                    ${response.data.location}</a>
+                  
+                    <a class="nav-link" href="${response.data.html_url}">GitHub<i class="fab fa-github"></i></a>
+                
+                    <a class="nav-link" href="${response.data.blog}">Blog <i class="fas fa-rss"></i>
+                    </a>
+                    
+                    </nav>
                     </div>
-                    <nav class="nav links-nav mt-5">
-
-
-                            <a class="nav-link" href="${response.data.location}">I am from ${response.data.location}</a>
-                        
-                        
-                            <a class="nav-link" href="${response.data.html_url}"><i class="fa fa-github" aria-hidden="true"></i>
-                            </a>
-                            
-                        
-                            <a class="nav-link" href="${response.data.blog}">${response.data.blog}</a>
-                            
-                            </nav>
+                   
                         
 
                 </div>
             </div>
-            <h2 class="display-4 text-center mt-5">Testing</h2>
-            
+              <div class="container">
+          <h3>${response.data.bio}</h3>
+          </div>
             <div class="row">
                 <div class="col">
-                    <div class="card photo-header">
+                    <div class="card photo-header ml-5">
                         <div class="card-body">
                             <h3>Public Repos </h3>
                             <h4>${response.data.public_repos} </h4>
@@ -230,9 +235,10 @@ function generateHTML(data, response) {
             
             <div class="row">
                 <div class="col">
-                    <div class="card photo-header">
+                    <div class="card photo-header ml-5">
                         <div class="card-body">
-                            <h4> What?</h4>
+                            <h3>Hireable</h3>
+                            <h4>${response.data.hireable}</h4>
                         </div>
                     </div>
                 </div>
