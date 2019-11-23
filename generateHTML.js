@@ -1,3 +1,8 @@
+// Developer-Profile-Generator
+// Homework-8 Jamie Morris
+// Most of the code provided from UNH
+// Module script
+// Color Options that coordinate with user answers
 const colors = {
   green: {
     wrapperBackground: "#E6E1C3",
@@ -25,6 +30,9 @@ const colors = {
   }
 };
 
+// Generates an HTML file using User Answers
+// Pulls user data from GitHub
+// Uses a Template Literal that also includes style tags and inline Bootstrap styling 
 function generateHTML(data, response) {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -180,11 +188,8 @@ function generateHTML(data, response) {
           } 
          }
       </style>
-      
       </head >
    <body>
-  
-    
         <div class="container">
             <div class="wrapper">
                 <div class="photo-header">
@@ -206,17 +211,12 @@ function generateHTML(data, response) {
                     
                     </nav>
                     </div>
-                    
-                   
-                        
-
                 </div>
             </div>
               <div class="container">
               
           <h3 class="ml-5 mr-5">${response.data.bio}</h3>
           
-
           </div>
             <div class="row">
                 <div class="col">
@@ -255,12 +255,8 @@ function generateHTML(data, response) {
                     </div>
                 </div>
             </div>
-        
-    
-
   </body>
  </html >`
 }
+// Exports it to index.js Entry Point
 module.exports = generateHTML;
-// generateHTML();
-// console.log(data);

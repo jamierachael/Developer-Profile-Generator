@@ -1,4 +1,8 @@
+// Developer-Profile-Generator
+// Homework-8 Jamie Morris
+// Entry Point script
 // Start JS
+// Declare requiements with variables
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
@@ -7,11 +11,11 @@ const generate = require('./generateHTML');
 const axios = require("axios");
 const open = require('open');
 
-
+// This will write the file, and modify it to a promise
 const writeFileAsync = util.promisify(fs.writeFile);
 
-// Pass in HTML file to function to create PDF 
 
+// Prompts user for username and favorite color
 function promptUser() {
   return inquirer.prompt([
     {
@@ -28,8 +32,8 @@ function promptUser() {
   ]);
 }
 
-// url: 'https://api.github.com/users/jamierachael',
 
+// Turns user prompt into answers to pull data
 let userAnswers = {};
 promptUser()
   .then(function (answers) {
@@ -37,11 +41,11 @@ promptUser()
     userAnswers = answers;
     console.log(answers);
 
-    // Make API call 
+    // Makes API call 
     // Return data, then write file
 
     const queryUrl = `https://api.github.com/users/${answers.username}`;
-
+    // Axious (API) call
     return axios.get(queryUrl)
 
 
@@ -49,20 +53,21 @@ promptUser()
   .then(function (response) {
     console.log(response);
     const html = generate(userAnswers, response);
+    // Writes data into an HTML doc
     return writeFileAsync("index.html", html);
 
   })
   .then(function () {
     console.log("Successfully wrote to index.html");
-    // var pdf = require('html-pdf');
+    // Reads the file before PDF conversion
     var htmlPDF = fs.readFileSync('./index.html', 'utf8');
     var options = { format: 'Letter' };
-
+    // Pass in HTML file to function to create PDF 
+    // Creates PDF 
     return new Promise((resolve, reject) => {
       pdf.create(htmlPDF, options).toFile('./index.pdf', function (err, res) {
-
-        console.log(res);
-
+        // console.log(res);
+        // Error testing 
         if (err) return reject(err);
         return resolve(res);
 
@@ -70,17 +75,16 @@ promptUser()
     })
 
   })
+  // Opens the PDF 
   .then(function (res) {
     console.log("This works!", res);
 
-
     open('index.pdf');
-    console.log('The image viewer app quit');
+    // console.log('The image viewer app quit');
   })
-
+  // Error testing 
   .catch(function (err) {
     console.log(err);
 
   });
 
-// Google maps is just a link with city in query string
