@@ -64,7 +64,7 @@ Developer Profile Generator Using Node JS
 
 
 ### Code Validation 
-    * These use W3C Code Validators for HTML and CSS
+    * These use W3C Code Validators for HTML, CSS and Javascript
         * Format: ![Validator-HTML](assets/Validator-HTML-Index)
         * Format: ![Validator-HTML](assets/Validator-CSS)
         * Format: ![Validator-CSS](assets/Validator-JS-Index)
