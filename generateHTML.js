@@ -3,7 +3,7 @@ const colors = {
     wrapperBackground: "#E6E1C3",
     headerBackground: "#C1C72C",
     headerColor: "black",
-    photoBorderColor: "#black"
+    photoBorderColor: "#000000"
   },
   blue: {
     wrapperBackground: "#5F64D3",
@@ -21,7 +21,7 @@ const colors = {
     wrapperBackground: "#DE9967",
     headerBackground: "#870603",
     headerColor: "white",
-    photoBorderColor: "white"
+    photoBorderColor: "#ffffff"
   }
 };
 
@@ -188,7 +188,7 @@ function generateHTML(data, response) {
         <div class="container">
             <div class="wrapper">
                 <div class="photo-header">
-                <img src="${response.data.avatar_url}" class="rounded-circle mx-auto d-block" />
+                <img src="${response.data.avatar_url}" class="rounded-circle mx-auto d-block" alt="GitHub Profile Photo"/>
                     <h1 class="display-4">Hi!</h1>
                     <h1 class="display-4">My name is ${response.data.name}</h1>
                     <h3 class="text-center mt-1">Currently @ ${response.data.company}</h3>
@@ -214,7 +214,7 @@ function generateHTML(data, response) {
             </div>
               <div class="container">
               
-          <h3 ml-5 mr-5>${response.data.bio}</h3>
+          <h3 class="ml-5 mr-5">${response.data.bio}</h3>
           
 
           </div>
@@ -255,7 +255,7 @@ function generateHTML(data, response) {
                     </div>
                 </div>
             </div>
-        </div>
+        
     
 
   </body>
